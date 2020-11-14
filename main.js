@@ -1,6 +1,8 @@
 
-$("#search-button").on("click", function(){
+$("#search-button").on("click", function(event){
 
+  event.preventDefault;
+  
   var apiKey = "4aQ43nuRLgwAVD6OBNpyNJCenXWZZ6k4";
   var searchedTerm = $('#search-term').val();
   var startYear = $("#start-year").val();
