@@ -11,3 +11,7 @@ h1{
 #sticky-footer{
     flex-shrink: none;
 }
+
+.form-control {
+    margin-bottom: 10px;
+}
