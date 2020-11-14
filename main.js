@@ -1,6 +1,6 @@
 
   var queryURL = "";
-  
+
 $("#search-button").on("click", function(event){
 
   event.preventDefault;
@@ -54,3 +54,10 @@ function searchNewYorkTimes() {
     }
   })
 }
+
+$("#clear-button").on("click", function(e) {
+
+  e.preventDefault;
+
+  $(".article").empty();
+})
