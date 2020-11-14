@@ -1,22 +1,33 @@
-var apiKey = "4aQ43nuRLgwAVD6OBNpyNJCenXWZZ6k4";
-var searchedTerm = "Space";
-var startYear = "";
-var endYear = "";
-var queryURL = "";
-var numberOfRecords = "5";
 
-//conditional to create queryURL
-if (startYear && endYear) {
-  queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=" + startYear + "0101&end_date=" + endYear + "1231&q=" + searchedTerm + "&api-key=" + apiKey;
-} else if (startYear && !endYear) {
-  queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=" + startYear + "0101&q=" + searchedTerm + "&api-key=" + apiKey;
-} else if (!startYear && endYear) {
-  queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?end_date=" + endYear + "1231&q=" + searchedTerm + "&api-key=" + apiKey;
-} else {
-  queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + searchedTerm + "&api-key=" + apiKey;
-}
+$("#search-button").on("click", function(){
+
+  var apiKey = "4aQ43nuRLgwAVD6OBNpyNJCenXWZZ6k4";
+  var searchedTerm = $('#search-term').val();
+  var startYear = $("#start-year").val();
+  var endYear = $("#end-year").val();
+  var queryURL = "";
+  
+  
+  //conditional to create queryURL
+  if (startYear && endYear) {
+    queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=" + startYear + "0101&end_date=" + endYear + "1231&q=" + searchedTerm + "&api-key=" + apiKey;
+  } else if (startYear && !endYear) {
+    queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?begin_date=" + startYear + "0101&q=" + searchedTerm + "&api-key=" + apiKey;
+  } else if (!startYear && endYear) {
+    queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?end_date=" + endYear + "1231&q=" + searchedTerm + "&api-key=" + apiKey;
+  } else {
+    queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + searchedTerm + "&api-key=" + apiKey;
+  }
+
+
+searchNewYorkTimes();
+
+})
+
 
 function searchNewYorkTimes() {
+
+  var numberOfRecords = $("#numbers-record").val();
 
   //NY Times API Call
   $.ajax({
