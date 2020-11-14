@@ -8,3 +8,6 @@ h1{
 .card{
     margin: 50px;
 }
+#sticky-footer{
+    flex-shrink: none;
+}
